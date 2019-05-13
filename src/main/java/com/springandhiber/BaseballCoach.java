@@ -2,6 +2,6 @@ package com.springandhiber;
 
 public class BaseballCoach implements Coach {
     public String getDailyWorkout() {
-        return "Baseball, beach!";
+        return "Spend 30 minutes on batting practice";
     }
 }
