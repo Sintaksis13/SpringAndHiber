@@ -1,4 +1,6 @@
-package com.springandhiber;
+package com.springandhiber.xml.coach;
+
+import com.springandhiber.xml.service.FortuneService;
 
 public class TrackCoach implements Coach {
     private FortuneService fortuneService;
@@ -13,5 +15,13 @@ public class TrackCoach implements Coach {
 
     public String getDailyFortune() {
         return fortuneService.getFortune();
+    }
+
+    public void initMethod() {
+        System.out.println("TrackCoach: init");
+    }
+
+    public void destroyMethod() {
+        System.out.println("TrackCoach: destroy");
     }
 }

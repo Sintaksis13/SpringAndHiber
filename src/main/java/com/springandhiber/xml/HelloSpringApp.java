@@ -1,5 +1,6 @@
-package com.springandhiber;
+package com.springandhiber.xml;
 
+import com.springandhiber.xml.coach.CricketCoach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class HelloSpringApp {
@@ -7,9 +8,11 @@ public class HelloSpringApp {
         //initialize application context
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         //retrieve bean from the spring container
-        Coach coach = context.getBean("myCricketCoach", Coach.class);
+        CricketCoach coach = context.getBean("myCricketCoach", CricketCoach.class);
         //call bean methods
         System.out.println(coach.getDailyWorkout() + " and " + coach.getDailyFortune());
+
+        System.out.println("\nemail: " + coach.getEmailAddress() + "\nteam: " + coach.getTeam());
         //close application context
         context.close();
     }

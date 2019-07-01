@@ -7,7 +7,15 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.springandhiber.annotations" />
+    <!-- Define your beans here -->
+    <bean id="myFortuneService" class="com.springandhiber.xml.service.RandomFortuneService" />
+    <bean id="myCoach"
+          class="com.springandhiber.xml.coach.TrackCoach"
+          scope="singleton"
+          init-method="initMethod"
+          destroy-method="destroyMethod">
+        <constructor-arg ref="myFortuneService" />
+    </bean>
     
 </beans>
 

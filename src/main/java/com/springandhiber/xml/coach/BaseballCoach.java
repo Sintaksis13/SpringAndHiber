@@ -1,4 +1,6 @@
-package com.springandhiber;
+package com.springandhiber.xml.coach;
+
+import com.springandhiber.xml.service.FortuneService;
 
 public class BaseballCoach implements Coach {
     private FortuneService fortuneService;
