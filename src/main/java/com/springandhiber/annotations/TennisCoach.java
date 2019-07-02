@@ -1,16 +1,17 @@
 package com.springandhiber.annotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
     private FortuneService fortuneService;
 
-    /*@Autowired
-    public TennisCoach(FortuneService fortuneService) {
+    @Autowired
+    public TennisCoach(@Qualifier("randomFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
-    }*/
+    }
 
     public String getDailyWorkout() {
         return "Tennis nigga!";
@@ -18,10 +19,5 @@ public class TennisCoach implements Coach {
 
     public String getFortune() {
         return fortuneService.getFortune();
-    }
-
-    @Autowired
-    public void doSomeShit(FortuneService fortuneService) {
-        this.fortuneService = fortuneService;
     }
 }
