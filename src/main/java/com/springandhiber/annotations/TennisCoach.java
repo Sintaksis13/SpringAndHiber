@@ -15,6 +15,9 @@ public class TennisCoach implements Coach {
     @Value("${foo.team}")
     private String team;
 
+    @Value("${foo.email}")
+    private String email;
+
     @Autowired
     public TennisCoach(@Qualifier("fileFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
@@ -36,5 +39,13 @@ public class TennisCoach implements Coach {
 
     public String getFortune() {
         return fortuneService.getFortune();
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

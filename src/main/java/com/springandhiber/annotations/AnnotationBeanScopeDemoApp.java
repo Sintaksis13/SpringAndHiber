@@ -1,12 +1,13 @@
 package com.springandhiber.annotations;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AnnotationBeanScopeDemoApp {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(SportConfig.class);
 
-        Coach theCoach = context.getBean("tennisCoach", Coach.class);
+        TennisCoach theCoach = context.getBean("tennisCoach", TennisCoach.class);
 
         Coach alphaCoach = context.getBean("tennisCoach", Coach.class);
 
@@ -15,6 +16,8 @@ public class AnnotationBeanScopeDemoApp {
 
         System.out.println("theCoach address: " + theCoach);
         System.out.println("alphaCoach address: " + alphaCoach);
+
+        System.out.println("Team = " + theCoach.getTeam() + ", email = " + theCoach.getEmail());
 
         context.close();
     }
